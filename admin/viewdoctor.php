@@ -1,7 +1,7 @@
 <?php 
 session_start();
 include('conn.php');
-$query=mysqli_query($conn,"SELECT * FROM user_tb join login_tb on user_tb.login_id=login_tb.login_id where role='doctor'");
+$query=mysqli_query($conn,"SELECT * FROM doctor_tb join login_tb on doctor_tb.login_id=login_tb.login_id where role='doctor'");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -47,10 +47,8 @@ $query=mysqli_query($conn,"SELECT * FROM user_tb join login_tb on user_tb.login_
               <thead>
                 <tr>
                   <th>Name</th>
-                  <th>Address</th>
-                  <th>Mobile</th>
-                  <th>Email</th>
-                  <th>Action</th>
+                  <th>Specialisation</th>
+                  <th>Hospital</th>
                 </tr>
               </thead>
               <?php
@@ -59,10 +57,9 @@ $query=mysqli_query($conn,"SELECT * FROM user_tb join login_tb on user_tb.login_
               ?>
               <tbody>
                 <tr>
-                  <td><?php echo $row['name'];?></td>
-                  <td><?php echo $row['address'];?></td>
-                  <td><?php echo $row['mobile'];?></td>
-                  <td><?php echo $row['email'];?></td>
+                  <td><?php echo $row['doctor_name'];?></td>
+                  <td><?php echo $row['specialisation'];?></td>
+                  <td><?php echo $row['hospital'];?></td>
                   <td><a href="editdoctor.php?edit_id=<?php echo $row['login_id'];?>"><input type="submit" name="edit" class="btn btn-primary" value="EDIT"></td>
                 </tr>
                

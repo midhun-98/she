@@ -2,15 +2,15 @@
 session_start();
 include('conn.php');
 $edit=$_GET['edit_id'];
-$query=mysqli_query($conn,"SELECT * FROM user_tb where login_id='$edit'");
+$query=mysqli_query($conn,"SELECT * FROM womencell_tb where login_id='$edit'");
 if(isset($_POST['subm']))
 {
     $name=$_POST['name'];
-    $address=$_POST['address'];
+    $location=$_POST['location'];
     $mobile=$_POST['mobile'];
     $email=$_POST['email'];
 
-    mysqli_query($conn,"UPDATE user_tb set name='$name',address='$address',mobile='$mobile',email='$email' where login_id='$edit'");
+    mysqli_query($conn,"UPDATE womencell_tb set name='$name',location='$location',mobile='$mobile',email='$email' where login_id='$edit'");
     header('location:dashboard.php');
 }
 ?>
@@ -66,8 +66,8 @@ if(isset($_POST['subm']))
                    <td><input type="text" name="name" value="<?php echo $row['name'];?>"></td>
               </tr>
               <tr>
-                   <th>Address</th>
-                   <td><input type="text" name="address" value="<?php echo $row['address'];?>"></td>
+                   <th>Location</th>
+                   <td><input type="text" name="location" value="<?php echo $row['location'];?>"></td>
               </tr>
               <tr>
                     <th>Mobile</th>

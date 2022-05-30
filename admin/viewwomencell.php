@@ -1,7 +1,7 @@
 <?php 
 session_start();
 include('conn.php');
-$query=mysqli_query($conn,"SELECT * FROM user_tb join login_tb on user_tb.login_id=login_tb.login_id where role='womencell'");
+$query=mysqli_query($conn,"SELECT * FROM womencell_tb join login_tb on womencell_tb.login_id=login_tb.login_id where role='womencell'");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -47,7 +47,7 @@ $query=mysqli_query($conn,"SELECT * FROM user_tb join login_tb on user_tb.login_
               <thead>
                 <tr>
                   <th>Name</th>
-                  <th>Address</th>
+                  <th>Location</th>
                   <th>Mobile</th>
                   <th>Email</th>
                   <th>Action</th>
@@ -60,7 +60,7 @@ $query=mysqli_query($conn,"SELECT * FROM user_tb join login_tb on user_tb.login_
               <tbody>
                 <tr>
                   <td><?php echo $row['name'];?></td>
-                  <td><?php echo $row['address'];?></td>
+                  <td><?php echo $row['location'];?></td>
                   <td><?php echo $row['mobile'];?></td>
                   <td><?php echo $row['email'];?></td>
                   <td><a href="editwomencell.php?edit_id=<?php echo $row['login_id'];?>"><input type="submit" name="edit" class="btn btn-primary" value="EDIT"></td>

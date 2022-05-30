@@ -1,7 +1,7 @@
 <?php 
 session_start();
 include('conn.php');
-$query=mysqli_query($conn,"SELECT * FROM womencell_tb join user_tb on womencell_tb.login_id=user_tb.login_id");
+$query=mysqli_query($conn,"SELECT * FROM chat_womencell_tb join user_tb on chat_womencell_tb.login_id=user_tb.login_id");
 ?>
 <!DOCTYPE html>
 <html lang="en">

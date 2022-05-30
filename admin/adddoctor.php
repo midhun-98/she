@@ -6,14 +6,13 @@ if(isset($_POST['subm']))
     $user=$_POST['username'];
     $pass=$_POST['password'];
     $name=$_POST['name'];
-    $address=$_POST['address'];
-    $mobile=$_POST['mobile'];
-    $email=$_POST['email'];
+    $specialisation=$_POST['specialisation'];
+    $hospital=$_POST['hospital'];
 
     mysqli_query($conn,"INSERT INTO login_tb(username,password,role)VALUES('$user','$pass','doctor')");
     $id=mysqli_insert_id($conn);
 
-    mysqli_query($conn,"INSERT INTO user_tb(login_id,username,password,name,address,mobile,email)VALUES('$id','$user','$pass','$name','$address','$mobile','$email')");
+    mysqli_query($conn,"INSERT INTO doctor_tb(login_id,doctor_name,specialisation,hospital)VALUES('$id','$name','$specialisation','$hospital')");
     header('location:dashboard.php');
 }
 ?>
@@ -84,29 +83,23 @@ if(isset($_POST['subm']))
                   </div>
                </div>
                <div class="form-group row">
-                  <label class="control-label col-md-3">Name</label>
+                  <label class="control-label col-md-3">Doctor Name</label>
                   <div class="col-md-8">
                     <input class="form-control" type="text" placeholder="username" name="name" required>
                   </div>
                 </div>
                 <div class="form-group row">
-                  <label class="control-label col-md-3">Address</label>
+                  <label class="control-label col-md-3">Specialization</label>
                   <div class="col-md-8">
-                  <textarea class="form-control" rows="4" placeholder="Enter your address" name="address" required></textarea>
+                  <textarea class="form-control" rows="4" placeholder="specialisation" name="specialisation" required></textarea>
                 </div>
                 </div>
                 <div class="form-group row">
-                  <label class="control-label col-md-3">Mobile</label>
+                  <label class="control-label col-md-3">Hospital</label>
                   <div class="col-md-8">
-                  <input class="form-control" type="text" name="mobile" placeholder="Enter your mobile" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" />
+                  <input class="form-control" type="text" name="hospital" placeholder="hospital name">
                   </div>
                </div>
-               <div class="form-group row">
-                  <label class="control-label col-md-3">Email</label>
-                  <div class="col-md-8">
-                    <input class="form-control" type="email" placeholder="Enter email address" name="email" required>
-                  </div>
-                </div>
                
               </form>
             </div>

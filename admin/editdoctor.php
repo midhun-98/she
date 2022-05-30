@@ -2,15 +2,14 @@
 session_start();
 include('conn.php');
 $edit=$_GET['edit_id'];
-$query=mysqli_query($conn,"SELECT * FROM user_tb where login_id='$edit'");
+$query=mysqli_query($conn,"SELECT * FROM doctor_tb where login_id='$edit'");
 if(isset($_POST['subm']))
 {
     $name=$_POST['name'];
-    $address=$_POST['address'];
-    $mobile=$_POST['mobile'];
-    $email=$_POST['email'];
+    $specialisation=$_POST['specialisation'];
+    $hospital=$_POST['hospital'];
 
-    mysqli_query($conn,"UPDATE user_tb set name='$name',address='$address',mobile='$mobile',email='$email' where login_id='$edit'");
+    mysqli_query($conn,"UPDATE doctor_tb set doctor_name='$name',specialisation='$specialisation',hospital='$hospital' where login_id='$edit'");
     header('location:dashboard.php');
 }
 ?>
@@ -67,19 +66,15 @@ if(isset($_POST['subm']))
               ?>
                <tr>
                    <th>Name</th>
-                   <td><input type="text" name="name" value="<?php echo $row['name'];?>"></td>
+                   <td><input type="text" name="name" value="<?php echo $row['doctor_name'];?>"></td>
               </tr>
               <tr>
-                   <th>Address</th>
-                   <td><input type="text" name="address" value="<?php echo $row['address'];?>"></td>
+                   <th>Specialisation</th>
+                   <td><input type="text" name="specialisation" value="<?php echo $row['specialisation'];?>"></td>
               </tr>
               <tr>
-                    <th>Mobile</th>
-                    <td><input type="text" name="mobile" value="<?php echo $row['mobile'];?>" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" /></td></td>
-              </tr>
-              <tr>
-                 <th>Email</th>
-                 <td><input type="text" name="email" value="<?php echo $row['email'];?>"></td>
+                 <th>Hospital</th>
+                 <td><input type="text" name="hospital" value="<?php echo $row['hospital'];?>"></td>
               </tr>
               <tr>
               <th>Action</th>

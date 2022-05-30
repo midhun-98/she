@@ -5,7 +5,7 @@ if(isset($_POST['subm']))
 {
 $msg=$_POST['msg'];
 
-mysqli_query($conn,"UPDATE womencell_tb SET reply='$msg' WHERE login_id='$edit'");
+mysqli_query($conn,"UPDATE chat_womencell_tb SET reply='$msg' WHERE login_id='$edit'");
 header("location:dashboard.php");
 }
 ?>

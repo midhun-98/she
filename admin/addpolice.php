@@ -6,14 +6,14 @@ if(isset($_POST['subm']))
     $user=$_POST['username'];
     $pass=$_POST['password'];
     $name=$_POST['name'];
-    $address=$_POST['address'];
+    $location=$_POST['location'];
     $mobile=$_POST['mobile'];
     $email=$_POST['email'];
    
     mysqli_query($conn,"INSERT INTO login_tb(username,password,role)VALUES('$user','$pass','police')");
     $id=mysqli_insert_id($conn);
 
-    mysqli_query($conn,"INSERT INTO user_tb(login_id,username,password,name,address,mobile,email)VALUES('$id','$user','$pass','$name','$address','$mobile','$email')");
+    mysqli_query($conn,"INSERT INTO police_tb(login_id,name,location,mobile,email)VALUES('$id','$name','$location','$mobile','$email')");
     header('location:dashboard.php');
 }
 ?>
@@ -90,9 +90,9 @@ if(isset($_POST['subm']))
                   </div>
                 </div>
                 <div class="form-group row">
-                  <label class="control-label col-md-3">Address</label>
+                  <label class="control-label col-md-3">Location</label>
                   <div class="col-md-8">
-                  <textarea class="form-control" rows="4" placeholder="Enter your address" name="address" required></textarea>
+                  <textarea class="form-control" rows="4" placeholder="Enter location" name="location" required></textarea>
                 </div>
                 </div>
                 <div class="form-group row">

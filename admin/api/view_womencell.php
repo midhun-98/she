@@ -1,20 +1,14 @@
 <?php 
 include('conn.php');
-$query=mysqli_query($conn,"SELECT * FROM user_tb join login_tb on user_tb.login_id=login_tb.login_id where role='womencell'");
-
+$query=mysqli_query($conn,"SELECT * FROM womencell_tb join login_tb on womencell_tb.login_id=login_tb.login_id where role='womencell'");
+$data=array();
 while($row=mysqli_fetch_assoc($query))
-
-if($query)
 {
-    $array['msg']='success';
-    $array['data']=$row['name'];
-    $array['data1']=$row['address'];
-    $array['data2']=$row['mobile'];
-    $array['data3']=$row['email'];
+    $array['name']=$row['name'];
+    $array['location']=$row['location'];
+    $array['mobile']=$row['mobile'];
+    $array['email']=$row['email'];
+    array_push($data,$array);
 }
-else
-{
-    $array['msg']='fail';
-}
-echo json_encode($array);
+echo json_encode($data);
 ?>
