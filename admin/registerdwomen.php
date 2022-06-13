@@ -40,7 +40,7 @@ $query=mysqli_query($conn,"SELECT * FROM user_tb JOIN login_tb on user_tb.login_
     ?>
     <main class="app-content">
      <div class="clearfix"></div>
-        <div class="col-md-6">
+        <div class="col-md-10">
           <div class="tile">
             <h3 class="tile-title">Registerd Women</h3>
             <table class="table table-bordered">
